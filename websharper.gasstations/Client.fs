@@ -140,6 +140,7 @@ module Client =
                 let box = Infobox(loc, InfoboxOptions(Description = html, Visible = false))
 
                 Events.AddHandler(pin, MouseEvent.Click, PinClick box) |> ignore
+                Events.AddHandler(box, MouseEvent.Click, InfoClick) |> ignore
 
                 map.Entities.Push pin
                 map.Entities.Push box
