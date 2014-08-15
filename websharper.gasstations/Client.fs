@@ -60,7 +60,7 @@ module Client =
             LoadPanel   : LoadPanel
         }
 
-    let bingMapsKey = __BINGMAPSKEY__
+    let bingMapsKey = "Ai6uQaKEyZbUvd33y5HU41hvoov_piUMn6t78Qzg7L1DWY4MFZqhjZdgEmCpQlbe"
 
     module Metrics =
         open System
@@ -82,7 +82,7 @@ module Client =
             R * c
 
     module private Stations =
-        let private nrelKey = __NRELKEY__
+        let private nrelKey = "PMwnNRqcydLTX3KHJBXC31Lf2H2mZaGesNPQsNzr"
 
 //        let fetched = Pervasives.ko.observable.Call<bool>(false)
         let fetched = makeObservableVal(false)
