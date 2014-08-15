@@ -13940,6 +13940,10 @@ Globalize.culture = function( cultureSelector ) {
          {
           return Client.PinClick(box,e);
          });
+         Microsoft.Maps.Events.addHandler(box,"click",function(e)
+         {
+          return Client.InfoClick(e);
+         });
          map.entities.push(pin);
          return map.entities.push(box);
         }),locs);
