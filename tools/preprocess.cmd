@@ -1,0 +1,5 @@
+mv "websharper.gasstations/Client.fs" "websharper.gasstations/Client2.fs"
+sed "s/__BINGMAPSKEY__/\"%BingMapsKey%\"/g" "websharper.gasstations/Client2.fs" > "websharper.gasstations/Client3.fs"
+sed "s/__NRELKEY__/\"%NrelKey%\"/g" "websharper.gasstations/Client3.fs" > "websharper.gasstations/Client.fs"
+rm "websharper.gasstations/Client2.fs"
+rm "websharper.gasstations/Client3.fs"

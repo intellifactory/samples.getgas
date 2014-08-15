@@ -1,0 +1,6 @@
+websharper.gasstations/bin/*
+packages/*
+websharper.gasstations/obj/*
+*.suo
+websharper.gasstations/Content/*
+websharper.gasstations/Client.fs.org

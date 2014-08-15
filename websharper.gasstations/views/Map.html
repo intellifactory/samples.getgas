@@ -1,0 +1,9 @@
+<div data-options="dxView : { name: 'Map', title: 'Gas stations' } " >
+    <div class="navigation" data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div class="search-wrapper" data-bind="dxTextBox: { placeholder: 'Search', mode: 'search', valueUpdateEvent: 'keyup', value: SearchQuery } "></div> 
+        <div class="map">
+            <div data-bind="element: Map"></div>
+        </div>
+        <div data-bind="dxLoadPanel: { message: 'Loading gas stations...', visible: LoadPanel.Visible }"></div>
+    </div>
+</div>
