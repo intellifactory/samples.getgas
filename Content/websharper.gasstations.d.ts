@@ -3235,9 +3235,25 @@ declare module __ABBREV {
 declare module websharper {
     module gasstations {
         module Client {
-            module Metrics {
+            module Metric {
+                interface Loc {
+                    lat: number;
+                    long: number;
+                }
+                var mkLoc : {
+                    (lat: number, _long: number): any;
+                };
+                var locationToLoc : {
+                    (a: __ABBREV.__Maps.Location): any;
+                };
+                var toRad : {
+                    (x: number): number;
+                };
                 var Distance : {
-                    (a: __ABBREV.__Maps.Location, b: __ABBREV.__Maps.Location): number;
+                    (a: any, b: any): number;
+                };
+                var R : {
+                    (): number;
                 };
             }
             module Array {
@@ -3279,14 +3295,14 @@ declare module websharper {
             var TracingLocation : {
                 (map: __ABBREV.__Maps.Map, unitVar1: void): void;
             };
-            var AppendMap : {
+            var MkMap : {
                 (): any;
             };
             var bingMapsKey : {
                 (): string;
             };
             var Main : {
-                (): __ABBREV.__JQuery.JQuery;
+                (): void;
             };
         }
     }
@@ -3296,6 +3312,5 @@ declare module __ABBREV {
     export import __Maps = IntelliFactory.WebSharper.Bing.Maps;
     export import __Knockout = IntelliFactory.WebSharper.Knockout;
     export import __Dom = IntelliFactory.WebSharper.Dom;
-    export import __JQuery = IntelliFactory.WebSharper.JQuery;
 }
 
