@@ -114,15 +114,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="IntelliFactory.WebSharper.Knockout">
-      <HintPath>..\packages\WebSharper.Knockout.2.5.11.0\lib\net40\IntelliFactory.WebSharper.Knockout.dll</HintPath>
+      <HintPath>..\packages\WebSharper.Knockout.2.5.14.0\lib\net40\IntelliFactory.WebSharper.Knockout.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="IntelliFactory.WebSharper.PhoneJS">
-      <HintPath>..\packages\WebSharper.PhoneJS.2.5.18.0\lib\net40\IntelliFactory.WebSharper.PhoneJS.dll</HintPath>
+      <HintPath>..\packages\WebSharper.PhoneJS.2.5.22.0\lib\net40\IntelliFactory.WebSharper.PhoneJS.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="IntelliFactory.WebSharper.TypeScript.Lib">
-      <HintPath>..\packages\WebSharper.TypeScript.Lib.2.5.8.9\lib\net40\IntelliFactory.WebSharper.TypeScript.Lib.dll</HintPath>
+      <HintPath>..\packages\WebSharper.TypeScript.Lib.2.5.34\lib\net40\IntelliFactory.WebSharper.TypeScript.Lib.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
