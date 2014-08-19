@@ -123,7 +123,6 @@ module Client =
         let box = As<Infobox> e.Target
         box.SetOptions(InfoboxOptions(Visible = false))
 
-
     // Adds a Pushpin indicationg a gas station to the map based on its distance to the center of the map
     let AddStations (max : int) (map : Map) =
         async {
@@ -181,7 +180,7 @@ module Client =
 
     // Perpares the map
     let MkMap () =
-        Div []
+        Div [ Attr.Class "dx-map-container" ]
         |> (fun el ->
             let options = 
                 MapOptions(
