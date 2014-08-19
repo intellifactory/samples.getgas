@@ -66,9 +66,30 @@
 </head>
 <body>
     <div id="wrapper">
-        <iframe class="dx-viewport" src="mobile.html" frameborder="0"></iframe>        
+        <iframe id="phone-emulator" class="dx-viewport" src="mobile.html" frameborder="0"></iframe>        
     <!--    <div class="dx-viewport"></div>-->
     </div>
+    <script>
+        var framenavigator = document.getElementById('phone-emulator').contentWindow.navigator;
+
+        var UserAgents = {
+            ios7: 'Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53',
+            android: 'Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K) AppleWebkit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+            winphone: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)',
+            tizen: 'Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-i9500/1.0; U; Tizen/1.0 like Android; en-us) AppleWebKit/534.46 (KHTML, like Gecko) SLP Browser/1.0 Mobile',
+            generic: framenavigator.userAgent
+        };
+
+        var changeFrameUserAgent = (function (nav) {
+            return function (newNav) {
+                nav.__defineGetter__('userAgent', function () {
+                    return newNav;
+                });
+            };
+        })(framenavigator);
+
+        changeFrameUserAgent(UserAgents.ios7);
+    </script>
     <div id="layer">
         <span>Try it on your mobile device!</span>
         <img src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Fintellifactory.github.io%2Fsamples.getgas%2Fmobile.html&amp;qzone=1&amp;margin=0&amp;size=200x200&amp;ecc=L" alt="qr code" />
