@@ -1,11 +1,13 @@
 namespace websharper.gasstations
 
 open IntelliFactory.WebSharper
-open IntelliFactory.WebSharper.Html
+open IntelliFactory.WebSharper.JavaScript
+open IntelliFactory.WebSharper.Html.Client
 open IntelliFactory.WebSharper.PhoneJS
 open IntelliFactory.WebSharper.JQuery
 open IntelliFactory.WebSharper.Bing.Maps
 open IntelliFactory.WebSharper.Knockout
+
 
 [<Require(typeof<Resources.AndroidHoloLight>)>]
 [<Require(typeof<Resources.GenericStyle>)>]
