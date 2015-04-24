@@ -1,12 +1,12 @@
 namespace websharper.gasstations
 
-open IntelliFactory.WebSharper
-open IntelliFactory.WebSharper.JavaScript
-open IntelliFactory.WebSharper.Html.Client
-open IntelliFactory.WebSharper.PhoneJS
-open IntelliFactory.WebSharper.JQuery
-open IntelliFactory.WebSharper.Bing.Maps
-open IntelliFactory.WebSharper.Knockout
+open WebSharper
+open WebSharper.JavaScript
+open WebSharper.Html.Client
+open WebSharper.PhoneJS
+open WebSharper.JQuery
+open WebSharper.Bing.Maps
+open WebSharper.Knockout
 
 
 [<Require(typeof<Resources.AndroidHoloLight>)>]
@@ -104,11 +104,10 @@ module Client =
         let private FetchStations () = 
             let url = "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=" + nrelKey
             Async.FromContinuations(fun (ok, err, ca) ->
-                JQuery.GetJSON(url).Then(fun (data : obj) -> 
+                JQuery.GetJSON(url).Done(fun (data : obj) -> 
                     Cache <- As data?fuel_stations
                     setObservable fetched true
-                    ok Cache
-                    true)|> ignore
+                    ok Cache)|> ignore
             )
 
         let GetStations () =
@@ -204,10 +203,10 @@ module Client =
     let Main =
         Pervasives.ko.bindingHandlers?element <-
             New [
-                "update" => fun (element : Dom.Element, valueAccessor) ->
+                "update" => FuncWithArgs(fun (element : Dom.Element, valueAccessor) ->
                                 let elem = As<Dom.Element> <| Pervasives.ko.unwrap(valueAccessor())
                                 JQuery.Of(element).Empty() |> ignore
-                                JQuery.Of(element).Append(elem)
+                                JQuery.Of(element).Append(elem))
             ]
 
         let MainApp : obj = New []
@@ -218,7 +217,7 @@ module Client =
                             ])
         let app = As<DevExpress.framework.html.HtmlApplication.T> MainApp?app
 
-        MainApp?Map <- fun paramz ->
+        MainApp?Map <- FuncWithRest<obj,_>(fun paramz ->
             let sq = makeObservable<string>()
             let searchQuery = sq.extend(As<Misc.extend1<string>> <| New [ "throttle" => 500 ])
             let (domMap, map) = MkMap ()
@@ -234,7 +233,7 @@ module Client =
                 if not <| System.String.IsNullOrEmpty s then
                     SearchAddress map value
             ) |> ignore
-            viewModel
+            viewModel)
 
         app.router.register(":view", New ["view" => "Map"])
         app.navigate()
